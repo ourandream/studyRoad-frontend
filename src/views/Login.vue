@@ -128,7 +128,6 @@ async function login() {
             router.push('/teacher')
         }
         else{
-            userInfo.$patch(JSON.parse('{"name":"李某","username":"user","gender":"女","className":"一班","nation":"汉","phoneNumber":"+1234567890","accountType":"内地","mainMajor":"网工","politicsState":"群众","address":"广东省广州市白云区","authorities":[{"authority":"ROLE_STUDENT"}],"id":1,"enabled":true,"lastPasswordResetDate":"2022-04-03T08:07:37.587+00:00"}'))
             router.push('/student/')
         }
     } catch (error) {

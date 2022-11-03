@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        "jsx": "preserve",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "vueCompilerOptions": {
+        "jsxTemplates": true
+    }
+}

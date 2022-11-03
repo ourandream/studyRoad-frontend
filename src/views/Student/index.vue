@@ -1,145 +1,86 @@
 <template>
     <div class="page">
-        <el-descriptions class="margin-top" title="基本信息" :column="3" border direction="vertical">
-            <template #extra>
-                <el-button type="primary">修改</el-button>
-            </template>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        <el-icon :style="iconStyle">
-                            <user />
-                        </el-icon>
-                        姓名
-                    </div>
-                </template>
-                {{ userInfo.name }}
-            </el-descriptions-item>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        学号
-                    </div>
-                </template>
-                {{ userInfo['id'] }}
-            </el-descriptions-item>
-
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        性别
-                    </div>
-                </template>
-                {{ userInfo.gender }}
-            </el-descriptions-item>
-
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        民族
-                    </div>
-                </template>
-                {{ userInfo.nation }}
-            </el-descriptions-item>
-
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        电话
-                    </div>
-                </template>
-                {{ userInfo.phoneNumber }}
-            </el-descriptions-item>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        政治面貌
-                    </div>
-                </template>
-                <el-tag size="small">{{ userInfo.politicsState }}</el-tag>
-            </el-descriptions-item>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        户口类型
-                    </div>
-                </template>
-                {{ userInfo.accountType }}
-            </el-descriptions-item>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        地址
-                    </div>
-                </template>
-                {{ userInfo.address }}
-            </el-descriptions-item>
-
-        </el-descriptions>
-        <el-descriptions title="专业信息" border direction="vertical">
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        <el-icon :style="iconStyle">
-                            <office-building />
-                        </el-icon>
-                        主修专业
-                    </div>
-                </template>
-                {{ userInfo.mainMajor }}
-            </el-descriptions-item>
-            <el-descriptions-item>
-                <template #label>
-                    <div class="cell-item">
-                        班级
-                    </div>
-                </template>
-                {{ userInfo.className }}
-            </el-descriptions-item>
-        </el-descriptions>
-
+        <editable-descriptions title="基本信息" style="margin-bottom:3vh" :column="3" url="/api/student/maininfo/stuinfo"
+            :descriptions-table="basicInfoDescriptionTable" />
+        <editable-descriptions title="家庭信息" :column="3" url="/api/student/maininfo/familyinfo"
+            :descriptions-table="familyDescriptionsTable" />
     </div>
 </template>
 
 <script setup lang="ts">
-import {
-    User,
-    OfficeBuilding,
-} from '@element-plus/icons-vue'
-import axios from 'axios';
-import {useUserInfo} from '../../stores/store'
+import {DescriptionsTable} from '@/types'
 
-let userInfo = useUserInfo()
-const size = ref('')
-const iconStyle = computed(() => {
-    const marginMap = {
-        large: '8px',
-        default: '6px',
-        small: '4px',
-    }
-    return {
-        marginRight: marginMap[size.value] || marginMap.default,
-    }
-})
+let basicInfoDescriptionTable:DescriptionsTable = {
+    username: {
+        title:'姓名' 
+    },
+    gender: {
+        title:'性别',
+        pattern:/^(男|女)$/,
+        patternMessage:'请输入男或女'
+    },
+    id: {
+        title:'学号',
+        pattern:/\d+/,
+        patternMessage:'请输入多位数字'
+    },
+    idNum: {
+        title:'身份证号'
+    },
+    grade: {
+        title:'年级'
+    },
+    major: {
+        title:'专业'
+    },
+    dormitory: {
+        title:'宿舍',
+    },
+    birthday: {
+        title:'生日',
+        pattern:/\d{4,4}-\d{2,2}-\d{2,2}/,
+        patternMessage:'请按yyyy-mm-dd格式输入'
+    },
+    nationality: {
+        title:'民族'
+    },
+    phone: {
+        title:'电话号码',
+        pattern:/\d+/,
+        patternMessage:'请输入多位数字'
+    },
+    address: {
+        title:'地址'
+    },
+}
+
+let familyDescriptionsTable:DescriptionsTable = {
+    address: {
+        title:'家庭地址'
+    },
+    familyPhone: {
+        title:"家庭联系电话",
+        pattern:/^[0-9]+$/,
+        patternMessage:'请输入多位数字作为电话'
+    },
+    isPoor: {
+        title:"是否困难",
+        pattern:/^(是|否)$/,
+        patternMessage:'请输入是或否'
+    },
+    poorSituation: {
+        title:'困难情况',
+        empty:true
+    },
+}
+
 
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .page {
-    padding-left: 5%;
-}
-
-.el-descriptions {
-    margin-top: 20px;
-}
-
-.cell-item {
-    display: flex;
-    align-items: center;
-}
-
-.margin-top {
-    margin-top: 20px;
+    padding: 0 2vw;
+    margin-top: 3vh;
 }
 </style>
