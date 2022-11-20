@@ -2,60 +2,7 @@
     <div style="padding:5% 3%;">
         <el-container>
             <el-container>
-                <el-row :gutter="0">
-                    <el-form ref="gradeFind" :model="gradeFind" :rules="rules" size="small" label-width="100px">
-                        <el-row>
-                            <el-col :span="7">
-                                <el-form-item label-width="110px" label="学年" prop="scyear">
-                                    <el-select v-model="gradeFind.scyear" placeholder="请选择成绩查询学年" clearable
-                                        :style="{ width: '100%' }">
-                                        <el-option v-for="(item, index) in scyearOptions" :key="index"
-                                            :label="item.label" :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-                            </el-col>
-                            <el-col :span="7">
-                                <el-form-item label-width="110px" label="学期" prop="semester">
-                                    <el-select v-model="gradeFind.semester" placeholder="请选择成绩查询学期" clearable
-                                        :style="{ width: '100%' }">
-                                        <el-option v-for="(item, index) in semesterOptions" :key="index"
-                                            :label="item.label" :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-                            </el-col>
-                            <el-col :span="7">
-                                <el-form-item label="课程" prop="cour">
-                                    <el-input v-model="gradeFind.cour" placeholder="请输入成绩查询课程" clearable
-                                        :prefix-icon='Edit' :style="{ width: '100%' }"></el-input>
-                                </el-form-item>
-                            </el-col>
-                        </el-row>
-                        <el-row>
-                            <el-col :span="7">
-                                <el-form-item label="课程性质" prop="courna">
-                                    <el-select v-model="gradeFind.courna" placeholder="请选择课程性质" clearable
-                                        :style="{ width: '100%' }">
-                                        <el-option v-for="(item, index) in cournaOptions" :key="index"
-                                            :label="item.label" :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-                            </el-col>
-                            <el-col :span="10">
-                                <el-form-item size="large" style="text-align: left;">
-                                    <el-button size="small" type="primary" @click="submitForm" :icon="Search">查询
-                                    </el-button>
-                                    <span style="margin-left: 10%">
-                                        <el-button size="small" @click="resetForm" type="success" :icon="Refresh">重置
-                                        </el-button>
-                                    </span>
-                                </el-form-item>
-                            </el-col>
-                        </el-row>
-                    </el-form>
-                </el-row>
+                
             </el-container>
             <el-container>
                 <img src="../../assets/student/achievement.png" style="height: 120px;width: 120px;">
@@ -102,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Search, Refresh ,Edit} from '@element-plus/icons-vue'
+import { Search, Refresh, Edit } from '@element-plus/icons-vue'
 
 let data = reactive({
     Point: 3.0,

@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     404: typeof import('./src/views/404.vue')['default']
     Analysis: typeof import('./src/views/Student/analysis.vue')['default']
+    Attendance: typeof import('./src/views/Student/Attendance.vue')['default']
     ChangePassword: typeof import('./src/views/ChangePassword.vue')['default']
     Competition: typeof import('./src/views/Student/competition.vue')['default']
     Comprehensive: typeof import('./src/views/Student/comprehensive.vue')['default']
@@ -20,6 +21,7 @@ declare module 'vue' {
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDescriptions: typeof import('element-plus/es')['ElDescriptions']
     ElDescriptionsItem: typeof import('element-plus/es')['ElDescriptionsItem']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -41,7 +43,6 @@ declare module 'vue' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
     Login: typeof import('./src/views/Login.vue')['default']
-    Main: typeof import('./src/views/Student/main.vue')['default']
     Paper: typeof import('./src/views/Student/paper.vue')['default']
     Results: typeof import('./src/views/Student/Results.vue')['default']
     Schedule: typeof import('./src/views/Student/Schedule.vue')['default']
@@ -49,10 +50,10 @@ declare module 'vue' {
     Statistics: typeof import('./src/views/Student/Statistics.vue')['default']
     Student: typeof import('./src/views/Student.vue')['default']
     StudentNavigator: typeof import('./src/components/StudentNavigator.vue')['default']
-    StudentPage: typeof import('./src/views/StudentPage.vue')['default']
     Teacher: typeof import('./src/views/Teacher.vue')['default']
     TeacherNavigator: typeof import('./src/components/TeacherNavigator.vue')['default']
     UserInfo: typeof import('./src/components/UserInfo.vue')['default']
+    YearTermWeekSelects: typeof import('./src/components/YearTermWeekSelects.vue')['default']
   }
 }
 

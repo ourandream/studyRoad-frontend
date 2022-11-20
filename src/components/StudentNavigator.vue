@@ -15,9 +15,9 @@
                 </el-icon>学业表现
             </template>
             <el-menu-item index="/student/schedule">学生课表</el-menu-item>
+            <el-menu-item index="/student/attendance">考勤记录</el-menu-item>
             <el-menu-item index="/student/results">学业成绩</el-menu-item>
             <el-menu-item index="/404">学业状态</el-menu-item>
-            <el-menu-item index="/404">考勤记录</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="3">
             <template #title>
@@ -35,7 +35,7 @@
                     <opportunity />
                 </el-icon>德育提升
             </template>
-            <el-menu-item index="/404">学生工作</el-menu-item>
+            <el-menu-item index="/student/attendance">学生工作</el-menu-item>
             <el-menu-item index="/404">入党入团</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="5">

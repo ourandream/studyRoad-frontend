@@ -10,27 +10,63 @@
             <ElOption v-for="i in weeksNum" :value="i" :label="`第${i + 1}周`" />
         </ElSelect>
     </div>
-    <div style="padding: 2%;">
+    <div style="padding:2% 0;">
 
-        <ElTable :data="schedule[currentWeek]?schedule[currentWeek].withoutTime:[]" border style="margin-bottom:3vh">
+        <ElTable :data="schedule[currentWeek] ? schedule[currentWeek].withoutTime : []" border
+            style="margin-bottom:3vh">
             <ElTableColumn prop="name" label="课程名"></ElTableColumn>
             <ElTableColumn prop="teacher" label="教师名"></ElTableColumn>
+            <ElTableColumn label="签到状态">
+                <template #default="scope">
+                    <div v-if="scope.row.signIn === 'yes'">
+                        <ElTag type="success">是</ElTag>
+                    </div>
+                    <div v-else-if="scope.row.signIn === 'no'">
+                        <ElTag type="danger">否</ElTag>
+                    </div>
+                    <div v-else>
+                        <ElTag type="warning">未知</ElTag>
+                    </div>
+                </template>
+            </ElTableColumn>
+
         </ElTable>
         <ElTable :data="scheduleInTable" border :span-method="scheduleSpanMethod" :cell-style="{ height: '130px' }"
             height="95vh">
             <ElTableColumn prop="section" />
             <ElTableColumn v-for="i in Array(7).keys()" :prop="i.toString()" :label="`周${chineseNum[i]}`">
                 <template #default="scope: { row: { [index: string]: WithTime } }">
-                    <div v-if="scope.row[i]" :style="{ ...randomColor[Math.floor(Math.random() * randomColor.length)] }"
-                        class="courseCell">
+                    <div v-if="scope.row[i]"
+                        :class="{ courseCell: true, 'courseCell--success': scope.row[i].signIn == 'yes', 
+                        'courseCell--error': scope.row[i].signIn == 'no' ,
+                        'courseCell--warning': scope.row[i].signIn == 'unknow' ,
+                        }"
+                        @click="()=>{courseTitle=scope.row[i].name;showCourseSignInInfo=true}" 
+                        >
                         {{ scope.row[i] ? scope.row[i].name : undefined }}
                         <p>{{ scope.row[i] ? scope.row[i].teacher : undefined }}</p>
                         <p>{{ scope.row[i] ? scope.row[i].place : undefined }}</p>
+                        <div v-if="scope.row[i].signIn==='yes'" class="courseCell__icon">
+                            <ElIcon><Check></Check></ElIcon>
+                        </div>
+                        <div v-else-if="scope.row[i].signIn==='no'" class="courseCell__icon">
+                            <ElIcon><Close></Close></ElIcon>
+                        </div>
+
+                        <div v-else-if="scope.row[i].signIn==='unknow'" class="courseCell__icon">
+                            <ElIcon><Edit></Edit></ElIcon>
+                        </div>
                     </div>
+
                 </template>
             </ElTableColumn>>
         </ElTable>
     </div>
+    <ElDialog v-model="showCourseSignInInfo" :title="`${courseTitle}考勤情况`" width="43vw">
+        <div class="signInInfo">
+            <div v-for="(value,index) in courseSignInInfo" :class="`signInInfo--${value} signInInfo__item`">{{index}}</div>
+        </div>
+    </ElDialog>
 </template>
 
 <script lang="ts" setup>
@@ -38,6 +74,7 @@ import axios from '@/axios';
 import { SchedulePerWeek, WithTime } from '@/types';
 import { useUserInfo } from '@/stores/store'
 import { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults';
+import {Check,Close,Edit} from '@element-plus/icons-vue'
 
 
 const { schoolYear } = useUserInfo()
@@ -63,7 +100,7 @@ function getSchedule() {
             term: currentTerm.value
         }
     }).then(responese => {
-        currentWeek.value=0
+        currentWeek.value = 0
         schedule.value = responese.data
     })
 }
@@ -139,9 +176,21 @@ function getWeekSchedule() {
         scheduleInTable.value[Number(i.sections[0]) - 1][i.timeInWeek.toString()] = i
     }
 }
+
+let courseTitle=ref('')
+let showCourseSignInInfo=ref(false)
+let courseSignInInfo=ref<'yes'|'no'|'unknow'|'undefined'[]>([])
+watch(courseTitle,async ()=>{
+    let res=await axios.get('/performance/signInInfo',{
+        params:{
+            courseTitle
+        }
+    })
+    courseSignInInfo.value=res.data
+})
 </script>
 
-<style>
+<style lang="scss">
 .selects {
     display: flex;
     justify-content: space-around;
@@ -157,5 +206,59 @@ function getWeekSchedule() {
     border-radius: 10px;
     padding: 3vh 0;
     padding-left: 1vw;
+    cursor: pointer;
+
+    &--success {
+        background-color: #e1f3d8;
+        color: #95d475;
+    }
+
+    &--error {
+        background-color: #fde2e2;
+        color: #f89898;
+    }
+
+    &--warning {
+        background-color: #faecd8;
+        color: #b88230
+    }
+
+    &__icon{
+        position: absolute;
+        bottom: 5vh;
+        font-size: 40px;
+    }
+}
+
+.signInInfo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    &__item{
+        width: 7vw;
+        font-size: 20px;
+        text-align: center;
+        padding: 3vw 0;
+        margin-bottom: 2vh;
+    }
+    &--yes {
+        background-color: #e1f3d8;
+        color: #95d475;
+    }
+
+    &--no {
+        background-color: #fde2e2;
+        color: #f89898;
+    }
+
+    &--unknow {
+        background-color: #faecd8;
+        color: #b88230
+    }
+
+    &--undefined{
+        background-color:  #e9e9eb;
+        color:  #b1b3b8;
+    }
 }
 </style>

@@ -7,7 +7,9 @@
         </el-aside>
         <el-main class="el-main">
             <el-scrollbar>
-                <router-view></router-view>
+                <div class="page">
+                    <router-view></router-view>
+                </div>
             </el-scrollbar>
         </el-main>
     </el-container>
@@ -27,6 +29,12 @@
 .el-main{
     padding: 0;
     margin: 0;
+}
+
+
+.page {
+    padding: 0 2vw;
+    margin-top: 3vh;
 }
 </style>
 

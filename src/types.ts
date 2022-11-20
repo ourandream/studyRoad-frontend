@@ -116,10 +116,25 @@ export interface WithTime {
      * 周几
      */
     timeInWeek: number;
+    signIn:'yes'|'no'|'unknow'
 }
 
 export interface WithoutTime {
     name: string;
     teacher: string;
+    signIn:'yes'|'no'|'unknow'
+}
+
+export interface AllCourseContention{
+    courseNames:string[]
+    signIn:number[]
+    notSignIn:number[]
+    unknow:number[]
+}
+
+export interface SignInSummary{
+    signIn:number
+    notSignIn:number
+    unknow:number
 }
 
