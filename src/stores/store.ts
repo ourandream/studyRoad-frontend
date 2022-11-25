@@ -13,5 +13,10 @@ export const useUserInfo = defineStore('userInfo', {
         return {
             ...userInfo
         }
+    },
+    getters:{
+        firstSchoolYear({schoolYear}){
+            return `${schoolYear}-${schoolYear+1}`
+        }
     }
 })

@@ -138,3 +138,43 @@ export interface SignInSummary{
     unknow:number
 }
 
+/**
+ * termResults
+ */
+export interface TermResults {
+    /**
+     * 学分
+     */
+    credit: number;
+    /**
+     * 绩点
+     */
+    GPA: number;
+    /**
+     * 课程名
+     */
+    name: string;
+    /**
+     * 成绩
+     */
+    result: number;
+    /**
+     * 老师
+     */
+    teacher: string;
+    /**
+     * 课程性质
+     */
+    type: string;
+}
+
+export interface CourseResult{
+    usual:{
+        score:number
+        rate:number
+    }
+    final:{
+        score:number
+        rate:number
+    }
+}

@@ -1,134 +1,95 @@
 <template>
-    <div style="padding:5% 3%;">
-        <el-container>
-            <el-container>
-                
-            </el-container>
-            <el-container>
+    <ElRow>
+        <ElCol :span="18">
+            <YearTermWeekSelects v-model:year="year" v-model:term="term" @change="getData" />
+        </ElCol>
+        <div>
+            <ElContainer>
                 <img src="../../assets/student/achievement.png" style="height: 120px;width: 120px;">
-            </el-container>
-            <el-container>
                 <el-descriptions size="default" border direction="vertical" style="margin-left: 10%">
                     <el-descriptions-item label="综合绩点" label-class-name="my-label" content-class-name="my-content">
-                        {{ Point }}</el-descriptions-item>
+                        {{ termGPA }}</el-descriptions-item>
                 </el-descriptions>
-            </el-container>
-        </el-container>
-        <!--表格-->
-        <el-scrollbar>
-            <el-table :data="pergrade" border stripe size="small" max-height="450px"
-                style="width: 100%;height: 450px;text-align: center">
-                <el-table-column prop="scyear" label="学年" width="120" sortable>
-                </el-table-column>
-                <el-table-column prop="semester" label="学期" width="120">
-                </el-table-column>
-                <el-table-column prop="course" label="课程">
-                </el-table-column>
-                <el-table-column prop="courna" label="课程性质" width="70">
-                    <template #default="scope">
-                        <el-tag v-if="scope.row.courna === '必修'" size="small">必修</el-tag>
-                        <el-tag v-if="scope.row.courna === '选修'" type="warning" size="small">选修</el-tag>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="courid" label="课程代码" width="120">
-                </el-table-column>
-                <el-table-column prop="credit" label="学分" sortable width="120">
-                </el-table-column>
-                <el-table-column prop="mark" label="分数" sortable width="120">
-                </el-table-column>
-                <el-table-column prop="gpa" label="绩点" sortable width="120">
-                </el-table-column>
-                <el-table-column prop="tea" label="任课老师" width="120">
-                </el-table-column>
-                <el-table-column prop="cregpa" label="学分绩点" sortable width="120">
-                </el-table-column>
-            </el-table>
+            </ElContainer>
+        </div>
+    </ElRow>
+    <!--表格-->
+    <el-scrollbar>
+        <ElTable :data="data" border>
+            <ElTableColumn v-for="i in Object.keys(propToChinese)" :prop="i" :label="propToChinese[i]"
+                :sortable="['GPA', 'credit'].indexOf(i) != -1" />
 
-        </el-scrollbar>
-    </div>
+            <ElTableColumn prop="result" label="成绩">
+                <template #default="scope">
+                    <ElLink type="primary" @click="showCourseResult(scope.row.id)">{{ scope.row.result }}</ElLink>
+                </template>
+            </ElTableColumn>
+        </ElTable>
+    </el-scrollbar>
+
+    <ElDialog v-model="showCourseResultDialog" title="具体成绩">
+        <ElDescriptions border direction="vertical">
+            <ElDescriptionsItem :label="`平时(${courseResult.usual.rate.toFixed(2)}%)`">{{ courseResult.usual.score }}
+            </ElDescriptionsItem>
+            <ElDescriptionsItem :label="`平时(${courseResult.final.rate.toFixed(2)}%)`">{{ courseResult.final.score }}
+            </ElDescriptionsItem>
+            <ElDescriptionsItem label="总分">{{ courseTotalResult }}</ElDescriptionsItem>
+        </ElDescriptions>
+    </ElDialog>
 </template>
 
 <script lang="ts" setup>
-import { Search, Refresh, Edit } from '@element-plus/icons-vue'
+import axios from '@/axios';
+import { useUserInfo } from '@/stores/store';
+import { CourseResult, TermResults } from '@/types';
 
-let data = reactive({
-    Point: 3.0,
-    pergrade: undefined,
-    gradeFind: {
-        scyear: "全部",
-        semester: 0,
-        cour: "",
-        courna: 0,
-    },
-    rules: {
-        scyear: [],
-        semester: [],
-        cour: [],
-        courna: [],
-    },
-    scyearOptions: [
-        {
-            "label": "全部",
-            "value": "全部"
-        }, {
-            "label": "2021~2022学年",
-            "value": "2021~2022学年"
-        }, {
-            "label": "2020~2021学年",
-            "value": "2020~2021学年"
-        }, {
-            "label": "2019~2020学年",
-            "value": "2019~2020学年"
-        }, {
-            "label": "2018~2019学年",
-            "value": "2018~2019学年"
-        }],
-    semesterOptions: [
-        {
-            "label": "全部",
-            "value": 0
-        }, {
-            "label": "第一学期",
-            "value": 1
-        }, {
-            "label": "第二学期",
-            "value": 2
-        }],
-    cournaOptions: [
-        {
-            "label": "全部",
-            "value": 0
-        }, {
-            "label": "必修",
-            "value": 1
-        }, {
-            "label": "选修",
-            "value": 2
-        }],
+let userInfo = useUserInfo()
+let year = ref(userInfo.firstSchoolYear)
+let term = ref(1)
+let propToChinese = {
+    name: '课程名',
+    type: '课程性质',
+    teacher: '老师',
+    credit: '学分',
+    GPA: '绩点',
+}
+let data = ref<TermResults[]>([])
+async function getData() {
+    let res = await axios.get('/student/results/termResults', {
+        params: { year, term }
+    })
+    data.value = res.data
+}
+getData()
 
+let termGPA = computed(() => {
+    if (data.value.length == 0) {
+        return 0
+    }
+    else {
+        let totalCredits = 0
+        let totalGPA = 0
+        for (let i of data.value) {
+            totalCredits += i.credit
+            totalGPA += i.credit * i.GPA
+        }
+        return (totalGPA / totalCredits).toFixed(2)
+    }
 })
-const { Point, pergrade, gradeFind, rules, scyearOptions, semesterOptions, cournaOptions } = toRefs(data)
 
-
-async function getscorelist() {
-}
-
-function submitForm() {
-}
-
-function resetForm() {
-}
-
-
+let showCourseResultDialog = ref(false)
+let courseResult = ref<CourseResult>({
+    usual: { score: 0, rate: 30 },
+    final: { score: 0, rate: 70 }
+})
+let courseTotalResult = computed(() => {
+    let usual = courseResult.value.usual
+    let final = courseResult.value.final
+    return (usual.score * usual.rate / 100 + final.score * final.rate / 100).toFixed(2)
+})
+async function showCourseResult(id: string) {
+    let res = await axios.get('/student/results/courseResult', { params: { id } })
+    courseResult.value = res.data
+    showCourseResultDialog.value = true
+} 
 </script>
-
-<style >
-.my-label {
-    background-color: burlywood;
-}
-
-.my-content {
-    background: #FDE2E2;
-}
-</style>
-
