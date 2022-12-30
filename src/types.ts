@@ -178,3 +178,91 @@ export interface CourseResult{
         rate:number
     }
 }
+
+/**
+ * ApifoxModel
+ */
+export interface AllSituation {
+    /**
+     * 主修
+     */
+    main: MainObject;
+}
+
+/**
+ * 主修
+ */
+export interface MainObject {
+    common: Situation;
+    /**
+     * 大类教育
+     */
+    major: Situation;
+    /**
+     * 实践教育
+     */
+    practical: Situation;
+    /**
+     * 专业教育
+     */
+    professional: Situation;
+}
+
+/**
+ * Situation
+ *
+ * 大类教育
+ *
+ * 实践教育
+ *
+ * 专业教育
+ */
+export interface Situation {
+    /**
+     * 必修
+     */
+    compulsory: CompulsoryObject;
+    /**
+     * 选修
+     */
+    elective: ElectiveObject;
+}
+
+/**
+ * 必修
+ */
+export interface CompulsoryObject {
+    /**
+     * 当前学分
+     */
+    current: number;
+    /**
+     * 要求学分
+     */
+    require: number;
+}
+
+/**
+ * 选修
+ */
+export interface ElectiveObject {
+    /**
+     * 当前学分
+     */
+    current: number;
+    /**
+     * 要求学分
+     */
+    require: number;
+}
+
+export interface CourseGPA {
+    /**
+     * gpa成绩，学分*gpa
+     */
+    gpa: number;
+    /**
+     * 课程名
+     */
+    name: string;
+}
