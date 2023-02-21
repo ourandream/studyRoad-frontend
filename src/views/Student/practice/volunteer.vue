@@ -1,7 +1,7 @@
 <template>
   <div class="main" v-loading="loading">
     <div class="main__buttons">
-      <ElButton @click="addFromVisibility = true">上传新实践记录</ElButton>
+      <ElButton @click="addFromVisibility = true">上传新志愿活动记录</ElButton>
       <ElButton @click="excludePassItemVisibility = true">显示审核结果</ElButton>
     </div>
     <div class="main__timeline">
@@ -52,7 +52,7 @@
       </ElFormItem>
     </ElForm>
   </ElDialog>
-  <ElDialog v-model="excludePassItemVisibility" title="审核中实践活动">
+  <ElDialog v-model="excludePassItemVisibility" title="审核中志愿活动">
     <div class="reviewStatusDialog">
       <ElCard v-for="reviewingPracticeItem in reviewingPracticeItems" class="reviewStatusDialog--warning">
         <div>

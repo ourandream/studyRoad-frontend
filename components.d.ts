@@ -60,6 +60,7 @@ declare module 'vue' {
     Teacher: typeof import('./src/views/Teacher.vue')['default']
     TeacherNavigator: typeof import('./src/components/TeacherNavigator.vue')['default']
     UserInfo: typeof import('./src/components/UserInfo.vue')['default']
+    Volunteer: typeof import('./src/views/Student/practice/volunteer.vue')['default']
     YearTermWeekSelects: typeof import('./src/components/YearTermWeekSelects.vue')['default']
   }
 }
