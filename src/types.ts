@@ -91,7 +91,7 @@ export interface DescriptionsTable {
         title: string,
         pattern?: RegExp,
         patternMessage?: string
-        empty?:boolean
+        empty?: boolean
     }
 }
 /**
@@ -116,26 +116,26 @@ export interface WithTime {
      * 周几
      */
     timeInWeek: number;
-    signIn:'yes'|'no'|'unknow'
+    signIn: 'yes' | 'no' | 'unknow'
 }
 
 export interface WithoutTime {
     name: string;
     teacher: string;
-    signIn:'yes'|'no'|'unknow'
+    signIn: 'yes' | 'no' | 'unknow'
 }
 
-export interface AllCourseContention{
-    courseNames:string[]
-    signIn:number[]
-    notSignIn:number[]
-    unknow:number[]
+export interface AllCourseContention {
+    courseNames: string[]
+    signIn: number[]
+    notSignIn: number[]
+    unknow: number[]
 }
 
-export interface SignInSummary{
-    signIn:number
-    notSignIn:number
-    unknow:number
+export interface SignInSummary {
+    signIn: number
+    notSignIn: number
+    unknow: number
 }
 
 /**
@@ -168,14 +168,14 @@ export interface TermResults {
     type: string;
 }
 
-export interface CourseResult{
-    usual:{
-        score:number
-        rate:number
+export interface CourseResult {
+    usual: {
+        score: number
+        rate: number
     }
-    final:{
-        score:number
-        rate:number
+    final: {
+        score: number
+        rate: number
     }
 }
 
@@ -265,4 +265,34 @@ export interface CourseGPA {
      * 课程名
      */
     name: string;
+}
+
+/**
+ * 社会实践item
+ */
+export interface SocialPracticeItem {
+    /**
+     * 成果展示图片
+     */
+    achievementImage: string;
+    /**
+     * 证书图片
+     */
+    certificateImage: string;
+    /**
+     * 时间
+     */
+    date: string;
+    /**
+     * 工作描述
+     */
+    description: string;
+    /**
+     * 标题
+     */
+    name: string;
+    /**
+     * 地点
+     */
+    place: string;
 }

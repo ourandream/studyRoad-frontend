@@ -13,7 +13,7 @@ const apiClient = axios.create({
 
 let userInfo = useUserInfo()
 
-apiClient.defaults.baseURL = 'http://127.0.0.1:4523/m1/1712777-0-default/'
+apiClient.defaults.baseURL = 'https://mock.apifox.cn/m1/1712777-0-default'
 apiClient.interceptors.response.use(response => response, (error) => {
     switch (error.response.status) {
         case 401:
@@ -27,7 +27,7 @@ apiClient.interceptors.request.use(config => {
     if (sessionStorage.getItem('token')) {
         config.headers = { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
     }
-    config.params={id:userInfo.id}
+    config.params = { id: userInfo.id }
     return config
 }, error => Promise.reject(error))
 

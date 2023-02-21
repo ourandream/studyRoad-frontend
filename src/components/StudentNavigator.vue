@@ -1,14 +1,13 @@
 <template>
     <user-info></user-info>
-    <el-menu :default-openeds="['1', '2']" class="el-menu" router 
-    default-active="/student/">
-       <el-menu-item index="/student/">
-           <el-icon>
-               <user-filled/>
-           </el-icon>
-           基本信息
-       </el-menu-item>
-       <el-sub-menu index="2">
+    <el-menu :default-openeds="['1', '2']" class="el-menu" router default-active="/student/">
+        <el-menu-item index="/student/">
+            <el-icon>
+                <user-filled />
+            </el-icon>
+            基本信息
+        </el-menu-item>
+        <el-sub-menu index="2">
             <template #title>
                 <el-icon>
                     <management />
@@ -25,7 +24,7 @@
                     <location-filled />
                 </el-icon>实践育人
             </template>
-            <el-menu-item index="/404">社会实践</el-menu-item>
+            <el-menu-item index="/student/practice/socialpractice">社会实践</el-menu-item>
             <el-menu-item index="/404">志愿服务</el-menu-item>
         </el-sub-menu>
 

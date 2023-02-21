@@ -12,9 +12,8 @@
 
 <script lang="ts" setup>
 import {
-    List, UserFilled, Opportunity, HomeFilled, Histogram, Management,
-    LocationFilled
-} from '@element-plus/icons-vue'
+List
+} from '@element-plus/icons-vue';
 </script>
 
 <style scoped>
