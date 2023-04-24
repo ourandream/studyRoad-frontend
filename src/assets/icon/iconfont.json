@@ -1,0 +1,93 @@
+{
+  "id": "3229793",
+  "name": "zongceicon",
+  "font_family": "iconfont",
+  "css_prefix_text": "zc-icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "436000",
+      "name": "性别",
+      "font_class": "xingbie",
+      "unicode": "e7f8",
+      "unicode_decimal": 59384
+    },
+    {
+      "icon_id": "765262",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "1092145",
+      "name": "家",
+      "font_class": "jia",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "1167131",
+      "name": "备注",
+      "font_class": "beizhu",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1304896",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "1985069",
+      "name": "政治",
+      "font_class": "zhengzhi",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "4552970",
+      "name": "邮箱",
+      "font_class": "youxiang",
+      "unicode": "e908",
+      "unicode_decimal": 59656
+    },
+    {
+      "icon_id": "4766920",
+      "name": "id card",
+      "font_class": "idcard",
+      "unicode": "e7de",
+      "unicode_decimal": 59358
+    },
+    {
+      "icon_id": "6196904",
+      "name": "民族",
+      "font_class": "minzu",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "8006190",
+      "name": "姓名",
+      "font_class": "xingming",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "11372650",
+      "name": "电话",
+      "font_class": "dianhua",
+      "unicode": "e8ad",
+      "unicode_decimal": 59565
+    },
+    {
+      "icon_id": "11372717",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e8bb",
+      "unicode_decimal": 59579
+    }
+  ]
+}

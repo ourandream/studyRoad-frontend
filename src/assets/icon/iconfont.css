@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3229793 */
+  src: url('iconfont.woff2?t=1646722260954') format('woff2'),
+       url('iconfont.woff?t=1646722260954') format('woff'),
+       url('iconfont.ttf?t=1646722260954') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ [class^="zc-icon"], [class*=" zc-icon"]
+ { font-family: "iconfont" !important;
+ font-size: 16px;
+ font-style: normal;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale; }  
+
+.zc-iconxingbie:before {
+  content: "\e7f8";
+}
+
+.zc-iconshouye:before {
+  content: "\e612";
+}
+
+.zc-iconjia:before {
+  content: "\e630";
+}
+
+.zc-iconbeizhu:before {
+  content: "\e615";
+}
+
+.zc-iconyonghu:before {
+  content: "\e624";
+}
+
+.zc-iconzhengzhi:before {
+  content: "\e655";
+}
+
+.zc-iconyouxiang:before {
+  content: "\e908";
+}
+
+.zc-iconidcard:before {
+  content: "\e7de";
+}
+
+.zc-iconminzu:before {
+  content: "\e64a";
+}
+
+.zc-iconxingming:before {
+  content: "\e607";
+}
+
+.zc-icondianhua:before {
+  content: "\e8ad";
+}
+
+.zc-iconweixin:before {
+  content: "\e8bb";
+}
+
