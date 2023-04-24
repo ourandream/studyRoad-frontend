@@ -1,69 +1,67 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-export const provedelete= (file) => {
+export const provedelete = (file) => {
   return request({
     url: "/ZongCe/takeoffice/provedelete",
-    method: 'get',
+    method: "get",
     params: {
-      file
-    }
-  })
-}
+      file,
+    },
+  });
+};
 
-
-export const setextrapoint= (stunum,postobject) => {
+export const setextrapoint = (stunum, postobject) => {
   return request({
     url: "/ZongCe/takeoffice/setextrapoint",
-    method: 'post',
+    method: "post",
     params: { stunum },
-    data:postobject
-  })
-}
+    data: postobject,
+  });
+};
 
-
-export const getauditdetails= (stunum) => {
+export const getauditdetails = (stunum) => {
   return request({
     url: "/ZongCe/takeoffice/getauditdetails",
-    method: 'get',
-    params: { stunum }
-  })
-}
+    method: "get",
+    params: { stunum },
+  });
+};
 
-export const deleterz= (rzid) => {
+export const deleterz = (rzid) => {
   return request({
     url: "/ZongCe/takeoffice/deleterz",
-    method: 'get',
-    params: { rzid }
-  })
-}
+    method: "get",
+    params: { rzid },
+  });
+};
 
-export const stuperList= (perUser) => {
+export const stuperList = (perUser) => {
   return request({
     url: "/ZongCe/teacher/stuperlist",
-    method: 'post',
-    data:perUser
-  })
-}
+    method: "post",
+    data: perUser,
+  });
+};
 
-export const unstuperList= (inperuser) => {
+export const unstuperList = (inperuser) => {
   return request({
     url: "/ZongCe/teacher/unstuperlist",
-    method: 'post',
-    data:inperuser
-  })
-}
+    method: "post",
+    data: inperuser,
+  });
+};
 
-export const delStuper=(stu)=>{
+export const delStuper = (stu) => {
   return request({
-    url:"/ZongCe/teacher/delstuper",
-    method:'get',
-    params:stu,
-  })
-}
-export const addStuper=(stu)=>{
+    url: "/ZongCe/teacher/delstuper",
+    method: "get",
+    params: stu,
+  });
+};
+export const addStuper = (stu) => {
   return request({
-    url:"/ZongCe/teacher/addstuper",
-    method:'get',
-    params:stu,
-  })
-}
+    url: "/ZongCe/teacher/addstuper",
+    method: "get",
+    params: stu,
+  });
+};

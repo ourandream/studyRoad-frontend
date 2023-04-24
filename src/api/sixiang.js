@@ -1,37 +1,36 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-export const provedelete= (file) => {
+export const provedelete = (file) => {
   return request({
     url: "/ZongCe/sixiang/provedelete",
-    method: 'get',
+    method: "get",
     params: {
-      file
-    }
-  })
-}
+      file,
+    },
+  });
+};
 
-export const setextrapoint= (stunum,behavior) => {
+export const setextrapoint = (stunum, behavior) => {
   return request({
     url: "/ZongCe/sixiang/setextrapoint",
-    method: 'post',
+    method: "post",
     params: { stunum },
-    data:behavior
-  })
-}
+    data: behavior,
+  });
+};
 
-
-export const getauditdetails= (stunum) => {
+export const getauditdetails = (stunum) => {
   return request({
     url: "/ZongCe/sixiang/getauditdetails",
-    method: 'get',
-    params: { stunum }
-  })
-}
+    method: "get",
+    params: { stunum },
+  });
+};
 
-export const deletesx= (sxid) => {
+export const deletesx = (sxid) => {
   return request({
     url: "/ZongCe/sixiang/deletesx",
-    method: 'get',
-    params: { sxid }
-  })
-}
+    method: "get",
+    params: { sxid },
+  });
+};

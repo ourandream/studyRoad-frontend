@@ -1,8 +1,8 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-export const Findbooks=()=>{
+export const Findbooks = () => {
   return request({
-    url:"/ZongCe/student/all",
-    method:'get'
-  })
-}
+    url: "/ZongCe/student/all",
+    method: "get",
+  });
+};

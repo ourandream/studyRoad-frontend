@@ -1,12 +1,18 @@
 <template>
-  <el-dialog title="上报数据详细" :visible.sync="scdialogFormVisible" class="scDetail" center @close="Close">
-    <el-descriptions class="margin-top"  :column="2" :size="size" border>
+  <el-dialog
+    title="上报数据详细"
+    :visible.sync="scdialogFormVisible"
+    class="scDetail"
+    center
+    @close="Close"
+  >
+    <el-descriptions class="margin-top" :column="2" :size="size" border>
       <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-user"></i>
           学年
         </template>
-        {{scshangbao.scyear}}
+        {{ scshangbao.scyear }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -14,8 +20,8 @@
           <i class="el-icon-mobile-phone"></i>
           学期
         </template>
-        <div v-if="this.scshangbao.semester===1">第一学期</div>
-        <div v-if="this.scshangbao.semester===2">第二学期</div>
+        <div v-if="this.scshangbao.semester === 1">第一学期</div>
+        <div v-if="this.scshangbao.semester === 2">第二学期</div>
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -23,14 +29,14 @@
           <i class="el-icon-location-outline"></i>
           科研竞赛成果时间
         </template>
-        {{scshangbao.time}}
+        {{ scshangbao.time }}
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-tickets"></i>
           类型
         </template>
-        {{scshangbao.type}}
+        {{ scshangbao.type }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -38,7 +44,7 @@
           <i class="el-icon-tickets"></i>
           科研竞赛成果名
         </template>
-        {{scshangbao.name}}
+        {{ scshangbao.name }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -46,7 +52,7 @@
           <i class="el-icon-tickets"></i>
           级别
         </template>
-        {{scshangbao.level}}
+        {{ scshangbao.level }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -54,7 +60,7 @@
           <i class="el-icon-tickets"></i>
           等次
         </template>
-        {{scshangbao.order}}
+        {{ scshangbao.order }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -62,7 +68,7 @@
           <i class="el-icon-tickets"></i>
           成果描述
         </template>
-        {{scshangbao.describe}}
+        {{ scshangbao.describe }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -70,7 +76,7 @@
           <i class="el-icon-tickets"></i>
           加分数
         </template>
-        {{scshangbao.mark}}
+        {{ scshangbao.mark }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -78,7 +84,7 @@
           <i class="el-icon-tickets"></i>
           备注
         </template>
-        {{scshangbao.remarks}}
+        {{ scshangbao.remarks }}
       </el-descriptions-item>
 
       <el-descriptions-item>
@@ -102,19 +108,22 @@
           <i class="el-icon-tickets"></i>
           审核状态
         </template>
-        <el-tag v-if="scshangbao.sign===0" size="small">待审核</el-tag>
-        <el-tag v-if="scshangbao.sign===1" size="small" type="success">审核通过</el-tag>
-        <el-tag v-if="scshangbao.sign===2" size="small" type="danger">审核未通过</el-tag>
+        <el-tag v-if="scshangbao.sign === 0" size="small">待审核</el-tag>
+        <el-tag v-if="scshangbao.sign === 1" size="small" type="success"
+          >审核通过</el-tag
+        >
+        <el-tag v-if="scshangbao.sign === 2" size="small" type="danger"
+          >审核未通过</el-tag
+        >
       </el-descriptions-item>
 
-      <el-descriptions-item v-if="scshangbao.sign===2">
+      <el-descriptions-item v-if="scshangbao.sign === 2">
         <template slot="label">
           <i class="el-icon-tickets"></i>
           审核意见
         </template>
-        {{scshangbao.reason}}
+        {{ scshangbao.reason }}
       </el-descriptions-item>
-
     </el-descriptions>
     <div slot="footer" class="dialog-footer">
       <el-button type="success" round @click="Close">确定</el-button>
@@ -123,18 +132,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'scdetail',
-    props:['scdialogFormVisible','scshangbao'],
-    methods: {
-      Close () {
-        this.scdialogFormVisible = false;
-        this.$emit("scChangedialogFormVisible");
-      },
-    }
-  }
+export default {
+  name: "scdetail",
+  props: ["scdialogFormVisible", "scshangbao"],
+  methods: {
+    Close() {
+      this.scdialogFormVisible = false;
+      this.$emit("scChangedialogFormVisible");
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,22 +1,25 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-export const getClassmate= (stugrade,stuclass,stuname) => {
+export const getClassmate = (stugrade, stuclass, stuname) => {
   return request({
     url: "/ZongCe/democratic/getClassmate",
-    method: 'get',
+    method: "get",
     params: {
-     stugrade,stuclass,stuname
-    }
-  })
-}
+      stugrade,
+      stuclass,
+      stuname,
+    },
+  });
+};
 
-export const setDemocratic= (score,scoreed,de) => {
+export const setDemocratic = (score, scoreed, de) => {
   return request({
     url: "/ZongCe/democratic/setDemocratic",
-    method: 'post',
+    method: "post",
     params: {
-      score,scoreed
+      score,
+      scoreed,
     },
-    data:de,
-  })
-}
+    data: de,
+  });
+};

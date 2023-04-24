@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3229793 */
-  src: url('iconfont.woff2?t=1646722260954') format('woff2'),
-       url('iconfont.woff?t=1646722260954') format('woff'),
-       url('iconfont.ttf?t=1646722260954') format('truetype');
+  src: url("iconfont.woff2?t=1646722260954") format("woff2"),
+    url("iconfont.woff?t=1646722260954") format("woff"),
+    url("iconfont.ttf?t=1646722260954") format("truetype");
 }
 
 .iconfont {
@@ -13,12 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
- [class^="zc-icon"], [class*=" zc-icon"]
- { font-family: "iconfont" !important;
- font-size: 16px;
- font-style: normal;
- -webkit-font-smoothing: antialiased;
- -moz-osx-font-smoothing: grayscale; }  
+[class^="zc-icon"],
+[class*=" zc-icon"] {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .zc-iconxingbie:before {
   content: "\e7f8";
@@ -67,4 +69,3 @@
 .zc-iconweixin:before {
   content: "\e8bb";
 }
-

@@ -1,27 +1,25 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-
-export const Findstudent=(user)=>{
+export const Findstudent = (user) => {
   return request({
-    url:"/ZongCe/student/findstu",
-    method:'get',
-    params:user,
-  })
-}
+    url: "/ZongCe/student/findstu",
+    method: "get",
+    params: user,
+  });
+};
 
-
-export const Findteacher=(user)=>{
+export const Findteacher = (user) => {
   return request({
-    url:"/ZongCe/teacher/findtea",
-    method:'get',
-    params:user,
-  })
-}
+    url: "/ZongCe/teacher/findtea",
+    method: "get",
+    params: user,
+  });
+};
 
-export const Findstulist=(current,size,num,name,sex,grade,major)=>{
+export const Findstulist = (current, size, num, name, sex, grade, major) => {
   return request({
-    url:"/ZongCe/student/findstulist",
-    method:'get',
+    url: "/ZongCe/student/findstulist",
+    method: "get",
     params: {
       current,
       size,
@@ -30,197 +28,196 @@ export const Findstulist=(current,size,num,name,sex,grade,major)=>{
       sex,
       grade,
       major,
-    }
-  })
-}
+    },
+  });
+};
 
-export const deleteImgFile= (file,id,head) => {
+export const deleteImgFile = (file, id, head) => {
   return request({
     url: "/ZongCe/student/deleteHead",
-    method: 'get',
+    method: "get",
     params: {
-      file,id,head
-    }
-  })
-}
+      file,
+      id,
+      head,
+    },
+  });
+};
 
-
-export const changeStuinfo= (student) => {
+export const changeStuinfo = (student) => {
   return request({
     url: "/ZongCe/student/changeStuinfo",
-    method: 'get',
-    params: student
-  })
-}
+    method: "get",
+    params: student,
+  });
+};
 
-export const changeTeainfo= (teacher) => {
+export const changeTeainfo = (teacher) => {
   return request({
     url: "/ZongCe/teacher/changeTeainfo",
-    method: 'get',
-    params: teacher
-  })
-}
+    method: "get",
+    params: teacher,
+  });
+};
 
-export const changeStupa= (painfo) => {
+export const changeStupa = (painfo) => {
   return request({
     url: "/ZongCe/student/changeStupa",
-    method: 'get',
-    params: painfo
-  })
-}
+    method: "get",
+    params: painfo,
+  });
+};
 
-export const changeTeapa= (changePs) => {
+export const changeTeapa = (changePs) => {
   return request({
     url: "/ZongCe/teacher/changeTeapa",
-    method: 'get',
-    params: changePs
-  })
-}
+    method: "get",
+    params: changePs,
+  });
+};
 
-export const getstulist= (stunum,stuname,stugrade) => {
+export const getstulist = (stunum, stuname, stugrade) => {
   return request({
     url: "/ZongCe/student/getstulist",
-    method: 'get',
-    params: {stunum,stuname,stugrade},
-  })
-}
+    method: "get",
+    params: { stunum, stuname, stugrade },
+  });
+};
 
-
-export const stuforgetpa= (forgetdata) => {
+export const stuforgetpa = (forgetdata) => {
   return request({
     url: "/ZongCe/student/forgetpa",
-    method: 'post',
-    data:forgetdata
-  })
-}
+    method: "post",
+    data: forgetdata,
+  });
+};
 
-export const teaforgetpa= (forgetdata) => {
+export const teaforgetpa = (forgetdata) => {
   return request({
     url: "/ZongCe/teacher/forgetpa",
-    method: 'post',
-    data:forgetdata
-  })
-}
+    method: "post",
+    data: forgetdata,
+  });
+};
 
-export const registerstu= (registerData) => {
+export const registerstu = (registerData) => {
   return request({
     url: "/ZongCe/student/register",
-    method: 'post',
-    data:registerData
-  })
-}
+    method: "post",
+    data: registerData,
+  });
+};
 
-export const deleteStu=(stu)=>{
+export const deleteStu = (stu) => {
   return request({
-    url:"/ZongCe/student/deletestu",
-    method:'get',
-    params:stu,
-  })
-}
+    url: "/ZongCe/student/deletestu",
+    method: "get",
+    params: stu,
+  });
+};
 
-export const modifyStu=(stuUser)=>{
+export const modifyStu = (stuUser) => {
   return request({
-    url:"/ZongCe/student/modifystu",
-    method:'get',
-    params:stuUser,
-  })
-}
+    url: "/ZongCe/student/modifystu",
+    method: "get",
+    params: stuUser,
+  });
+};
 
-
-export const teaaddStu=(stuUseradd)=>{
+export const teaaddStu = (stuUseradd) => {
   return request({
-    url:"/ZongCe/student/teaaddstu",
-    method:'get',
-    params:stuUseradd,
-  })
-}
+    url: "/ZongCe/student/teaaddstu",
+    method: "get",
+    params: stuUseradd,
+  });
+};
 
-export const reducePoint= (teauser,deductForm) => {
+export const reducePoint = (teauser, deductForm) => {
   return request({
     url: "/ZongCe/teacher/reducepoint",
-    method: 'post',
-    data:[teauser,deductForm]
-  })
-}
+    method: "post",
+    data: [teauser, deductForm],
+  });
+};
 
-export const teagetdepointList= (depointFind) => {
+export const teagetdepointList = (depointFind) => {
   return request({
     url: "/ZongCe/teacher/teagetdepointlist",
-    method: 'post',
-    data:depointFind
-  })
-}
+    method: "post",
+    data: depointFind,
+  });
+};
 
-export const stugetdepointList= (stuuser) => {
+export const stugetdepointList = (stuuser) => {
   return request({
     url: "/ZongCe/student/stugetdepointlist",
-    method: 'post',
-    data:stuuser
-  })
-}
+    method: "post",
+    data: stuuser,
+  });
+};
 
-export const teagetdaishenheList= (daishenFind) => {
+export const teagetdaishenheList = (daishenFind) => {
   return request({
     url: "/ZongCe/teacher/teagetdaishenhelist",
-    method: 'post',
-    data:daishenFind
-  })
-}
+    method: "post",
+    data: daishenFind,
+  });
+};
 
-export const teaTongguo= (teauser,tongguo) => {
+export const teaTongguo = (teauser, tongguo) => {
   return request({
     url: "/ZongCe/teacher/teatongguo",
-    method: 'post',
-    data:[teauser,tongguo]
-  })
-}
+    method: "post",
+    data: [teauser, tongguo],
+  });
+};
 
-export const teaButongguo= (recom,teauser,tongguo) => {
+export const teaButongguo = (recom, teauser, tongguo) => {
   return request({
     url: "/ZongCe/teacher/teabutongguo",
-    method: 'post',
-    params:{recom},
-    data:[teauser,tongguo]
-  })
-}
+    method: "post",
+    params: { recom },
+    data: [teauser, tongguo],
+  });
+};
 
-export const teagetyishenheList= (yishenFind) => {
+export const teagetyishenheList = (yishenFind) => {
   return request({
     url: "/ZongCe/teacher/teagetyishenhelist",
-    method: 'post',
-    data:yishenFind
-  })
-}
+    method: "post",
+    data: yishenFind,
+  });
+};
 
-export const stugetdaishenheList= (stuuser) => {
+export const stugetdaishenheList = (stuuser) => {
   return request({
     url: "/ZongCe/teacher/stugetdaishenhelist",
-    method: 'post',
-    data:stuuser
-  })
-}
+    method: "post",
+    data: stuuser,
+  });
+};
 
-export const stuTongguo= (stuuser,tongguo) => {
+export const stuTongguo = (stuuser, tongguo) => {
   return request({
     url: "/ZongCe/teacher/stutongguo",
-    method: 'post',
-    data:[stuuser,tongguo]
-  })
-}
+    method: "post",
+    data: [stuuser, tongguo],
+  });
+};
 
-export const stuButongguo= (recom,stuuser,tongguo) => {
+export const stuButongguo = (recom, stuuser, tongguo) => {
   return request({
     url: "/ZongCe/teacher/stubutongguo",
-    method: 'post',
-    params:{recom},
-    data:[stuuser,tongguo]
-  })
-}
+    method: "post",
+    params: { recom },
+    data: [stuuser, tongguo],
+  });
+};
 
-export const stugetyishenheList= (stuuser) => {
+export const stugetyishenheList = (stuuser) => {
   return request({
     url: "/ZongCe/teacher/stugetyishenhelist",
-    method: 'post',
-    data:stuuser
-  })
-}
+    method: "post",
+    data: stuuser,
+  });
+};
