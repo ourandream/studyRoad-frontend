@@ -93,100 +93,87 @@
         >
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-user-solid"></i>
               <span slot="title">思想品德</span>
             </template>
             <el-menu-item index="/deAppraisal">
-              <i class="el-icon-location"></i>
               <span slot="title">民主测评</span>
             </el-menu-item>
             <el-menu-item index="/idrology">
-              <i class="el-icon-location"></i>
               <span slot="title">加分上报</span>
             </el-menu-item>
             <el-menu-item index="/exidrology">
-              <i class="el-icon-location"></i>
               <span slot="title">审核明细</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-order"></i>
               <span slot="title">学业表现</span>
             </template>
             <el-menu-item index="/perachievement">
-              <i class="el-icon-location"></i>
               <span slot="title">个人成绩</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="3">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-marketing"></i>
               <span slot="title">科研竞赛</span>
             </template>
             <el-menu-item index="/scientific">
-              <i class="el-icon-location"></i>
               <span slot="title">加分上报</span>
             </el-menu-item>
             <el-menu-item index="/science">
-              <i class="el-icon-location"></i>
               <span slot="title">审核明细</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="4">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-promotion"></i>
               <span slot="title">艺体素养</span>
             </template>
             <el-menu-item index="/artjoin">
-              <i class="el-icon-location"></i>
               <span slot="title">加分上报</span>
             </el-menu-item>
             <el-menu-item index="/artsport">
-              <i class="el-icon-location"></i>
               <span slot="title">审核明细</span>
             </el-menu-item>
           </el-submenu>
           <el-submenu index="5">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-ticket"></i>
               <span slot="title">实践创业</span>
             </template>
             <el-menu-item index="/post">
-              <i class="el-icon-location"></i>
               <span slot="title">职务上报</span>
             </el-menu-item>
             <el-menu-item index="/practicehonor">
-              <i class="el-icon-location"></i>
               <span slot="title">加分上报</span>
             </el-menu-item>
             <el-menu-item index="/practice">
-              <i class="el-icon-location"></i>
               <span slot="title">审核明细</span>
             </el-menu-item>
           </el-submenu>
           <el-menu-item index="/deductpointse">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-s-release"></i>
             <span slot="title">扣分明细</span>
           </el-menu-item>
           <el-menu-item index="/comquality">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-s-data"></i>
             <span slot="title">综合测评</span>
           </el-menu-item>
           <el-submenu v-if="this.$session.get('user').stupower === 1" index="7">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-check"></i>
               <span slot="title">管理员</span>
             </template>
             <el-menu-item index="/manunreviewed">
-              <i class="el-icon-location"></i>
               <span slot="title">待审核</span>
             </el-menu-item>
             <el-menu-item index="/manreviewed">
-              <i class="el-icon-location"></i>
               <span slot="title">已审核</span>
             </el-menu-item>
           </el-submenu>
