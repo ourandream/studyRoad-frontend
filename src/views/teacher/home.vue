@@ -1,6 +1,6 @@
 <template>
   <el-container class="home-container">
-    <el-header>
+    <!-- <el-header>
       <div class="left_box">
         <img src="../../assets/index.png" />
         <span style="width: 200px"
@@ -58,11 +58,75 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-    </el-header>
+    </el-header> -->
 
     <el-container>
-      <el-aside :width="isOpen == true ? '64px' : '180px'">
-        <div class="toggle-btn" @click="toggleMenu">|||</div>
+      <el-aside
+        :width="isOpen == true ? '64px' : '180px'"
+        style="position: relative"
+      >
+        <!-- <div class="toggle-btn" @click="toggleMenu">|||</div> -->
+        <router-link to="/TeaHome" style="text-decoration: none">
+          <div
+            style="
+              color: rgb(164, 166, 179);
+              display: flex;
+              margin: 4vh 0px;
+              align-items: center;
+              padding-left: 12%;
+              font-size: large;
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="none"
+              version="1.1"
+              style="margin-right: 13%"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <defs>
+                <linearGradient
+                  x1="-5.551115123125783e-17"
+                  y1="-1.1102230246251565e-16"
+                  x2="1"
+                  y2="1"
+                  id="master_svg0__14"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#FFFFFF"
+                    stop-opacity="0.699999988079071"
+                  />
+                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+                </linearGradient>
+              </defs>
+              <g style="mix-blend-mode: passthrough">
+                <g style="mix-blend-mode: passthrough">
+                  <ellipse
+                    cx="16"
+                    cy="16"
+                    rx="16"
+                    ry="16"
+                    fill="#3751FF"
+                    fill-opacity="1"
+                  />
+                </g>
+                <g style="mix-blend-mode: passthrough">
+                  <path
+                    d="M11,10C11,9.447716,11.447715,9,12,9C12,9,15.99048,9,15.99048,9C18.212699999999998,9,19.933329999999998,9.609551,21.1524,10.82865C22.3841,12.04775,23,13.764980000000001,23,15.98034C23,18.2088,22.3841,19.9391,21.1524,21.171300000000002C19.933329999999998,22.3904,18.212699999999998,23,15.99048,23C15.99048,23,12,23,12,23C11.447715,23,11,22.552300000000002,11,22C11,22,11,10,11,10C11,10,11,10,11,10Z"
+                    fill="url(#master_svg0__14)"
+                    fill-opacity="1"
+                  />
+                </g>
+              </g>
+            </svg>
+            学路系统
+          </div>
+        </router-link>
+
         <el-menu
           class="el-menu-vertical-demo"
           :collapse="isOpen"
@@ -75,68 +139,117 @@
         >
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-user-solid"></i>
               <span slot="title">用户管理</span>
             </template>
             <el-menu-item index="/stuManage">
-              <i class="el-icon-location"></i>
               <span slot="title">学生列表</span>
             </el-menu-item>
             <el-menu-item index="/setPermi">
-              <i class="el-icon-location"></i>
               <span slot="title">权限设置</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-marketing"></i>
               <span slot="title">成绩管理</span>
             </template>
             <el-menu-item index="/scoreentry">
-              <i class="el-icon-location"></i>
               <span slot="title">成绩录入</span>
             </el-menu-item>
             <el-menu-item index="/scoredetail">
-              <i class="el-icon-location"></i>
               <span slot="title">成绩明细</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="3">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-check"></i>
               <span slot="title">审核管理</span>
             </template>
             <el-menu-item index="/daishenhe">
-              <i class="el-icon-location"></i>
               <span slot="title">待审核</span>
             </el-menu-item>
             <el-menu-item index="/yishenhe">
-              <i class="el-icon-location"></i>
               <span slot="title">已审核</span>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu index="4">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-release"></i>
               <span slot="title">扣分管理</span>
             </template>
             <el-menu-item index="/reducepoint">
-              <i class="el-icon-location"></i>
               <span slot="title">扣分录入</span>
             </el-menu-item>
             <el-menu-item index="/deductlist">
-              <i class="el-icon-location"></i>
               <span slot="title">扣分明细</span>
             </el-menu-item>
           </el-submenu>
           <el-menu-item index="/evaluation">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-s-data"></i>
             <span slot="title">综合测评</span>
           </el-menu-item>
         </el-menu>
+        <el-dropdown
+          style="
+            position: absolute;
+            bottom: 2vh;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+          "
+        >
+          <el-image
+            :src="teaimgurl"
+            style="
+              width: 3vw;
+              border-radius: 50%;
+              background-color: #8db1f1;
+              margin: 0px 0vh 0px 0px;
+            "
+          ></el-image>
+          <div style="padding-top: 1.5vh">{{ name }}</div>
+
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item
+              ><span
+                class="zc-iconshouye"
+                @click="Return"
+                style="font-size: 15px"
+                >&nbsp;回到首页</span
+              >
+            </el-dropdown-item>
+            <el-dropdown-item
+              ><span
+                class="el-icon-user-solid"
+                @click="Info"
+                style="font-size: 15px"
+                >&nbsp;信息维护</span
+              ></el-dropdown-item
+            >
+            <el-dropdown-item
+              ><span
+                class="el-icon-s-help"
+                @click="changehead"
+                style="font-size: 15px"
+                >&nbsp;头像更换</span
+              ></el-dropdown-item
+            >
+            <el-dropdown-item
+              ><span
+                class="el-icon-switch-button"
+                @click="SignOut"
+                style="font-size: 15px"
+                >&nbsp;退出登录</span
+              ></el-dropdown-item
+            >
+          </el-dropdown-menu>
+        </el-dropdown>
       </el-aside>
 
       <el-main>
@@ -263,5 +376,10 @@ export default {
   display: block;
   font-size: 18px;
   margin-left: 920px;
+}
+
+li.el-menu-item.is-active {
+  border-left: 1px solid white;
+  background-color: rgb(31, 35, 41) !important;
 }
 </style>
