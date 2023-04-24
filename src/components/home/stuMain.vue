@@ -119,28 +119,8 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row style="margin-top:3vh" v-if="['shijian','yiti','keyan'].includes(dataType)">
-      <el-card title="时间线" style="max-height: 40vh">
-      <div slot="header" class="clearfix">
-          <h3>时间线</h3>
-        </div>
-      <ElTimeline>
-        <ElTimelineItem v-for="item in [{name:'test',description:'aaa',key:3,value:5,date:'2022-05-01'}]" :timestamp="item.date" placement="top" :key="item.key" center>
-          <ElCard>
-            <div class="timelineItem">
-              <div class="timelineItem__text">
-                <h4>{{ item.name }}</h4>
-                <div>{{ item.description }}</div>
-              </div>
-              <div class="timelineItem__img">
-                <img :src="item.achievementImage" alt="成果展示图片" />
-              </div>
-            </div>
-          </ElCard>
-        </ElTimelineItem>
-      </ElTimeline>
-
-      </el-card>
+    <el-row style="margin-top:3vh;text-align:start" v-if="['shijian','yiti','keyan'].includes(dataType)">
+      <timeline-card :timelineData="timelineData"/>
     </el-row>
   </div>
     </el-scrollbar>
@@ -148,11 +128,17 @@
 </template>
 
 <script>
+  import {getauditdetails as getKeyanData} from '@/api/keyan'
+  import {getauditdetails as getShijianData} from '@/api/shijian'
+  import {getauditdetails as getYitiData} from '@/api/yiti'
+  import TimelineCard from '@/components/common/TimelineCard.vue'
   export default {
+  components: { TimelineCard },
     name: 'stuMain',
     data(){
       return{
         dataType: '',
+        timelineData: [{resultImage:'',time:'',title:'',description:'',key:0}],
         data1:[100,900,800,700,600,400,800],
         scdata2: ['2021~2022学年', '2020~2021学年', '2019~2020学年','2018~2019学年'],
          scdata: ['2021~2022学年', '2020~2021学年', '2019~2020学年','2018~2019学年'],
@@ -563,11 +549,51 @@
         this.$echarts.init(document.getElementById('area')).dispose();
         this.$echarts.init(document.getElementById('pie')).dispose();
         this.piearea(this.moduledata,this.scdata2);
+      },
+      async updateTimelineData(type){
+        console.log(type)
+
+        var stunum=this.$session.get("user").stunum
+        const newtimelinedata=[]
+        let events=[]
+        let nameKey='name'
+        if(type==='keyan'){
+          events= (await getKeyanData(stunum)).data.data.technology.reviewed
+        }
+        else if(type==='shijian'){
+          events=(await getShijianData(stunum)).data.data.pra.reviewed
+          nameKey='matter'
+        }
+        else if(type==='yiti'){
+          events=(await getYitiData(stunum)).data.data.artsp.reviewed
+        }
+        let key=0
+          for(const event of events){
+            const timelineitem={key:key++}
+            timelineitem.title=event[nameKey]
+            timelineitem.date=event.time
+            timelineitem.description=event.describe
+            timelineitem.resultImage=event.prove
+            newtimelinedata.push(timelineitem)
+          }
+        newtimelinedata.sort((a,b)=>
+        {      return (new Date(b.date).getTime()) - (new Date(a.date).getTime())}
+          )
+        this.timelineData=newtimelinedata
+
+      }
+    },
+    watch:{
+      dataType(newtype){
+        this.updateTimelineData(newtype)
       }
     },
     mounted(){
       this. barcharts(this.sxdata,this.scdata,this.sxdata1);
       this.piearea(this.moduledata,this.scdata2);
+    },
+    components:{
+      TimelineCard
     }
   }
 </script>
