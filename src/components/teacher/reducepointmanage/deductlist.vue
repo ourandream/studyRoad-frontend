@@ -3,7 +3,7 @@
     <el-breadcrumb separator="》" style="padding-left:10px;padding-bottom:1%;font-size:15px;padding-top: 0.5%;">
       <el-breadcrumb-item :to="{ path: '/TeaHome' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>扣分管理</el-breadcrumb-item>
-      <el-breadcrumb-item>扣分明细</el-breadcrumb-item>
+      <el-breadcrumb-item>违纪扣分</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card class="depoint">
       <!--      查询条件区-->

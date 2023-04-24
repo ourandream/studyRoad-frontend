@@ -18,7 +18,7 @@
               <div class="card-panel-text ">
                 品德
               </div>
-              <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num" />
+              <!-- <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num" /> -->
             </div>
           </div>
         </el-col>
@@ -35,7 +35,7 @@
               <div class="card-panel-text">
                 表现
               </div>
-              <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" />
+              <!-- <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" /> -->
             </div>
           </div>
         </el-col>
@@ -52,7 +52,7 @@
               <div class="card-panel-text">
                 竞赛
               </div>
-              <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num" />
+              <!-- <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num" /> -->
             </div>
           </div>
         </el-col>
@@ -69,7 +69,7 @@
               <div class="card-panel-text">
                 素养
               </div>
-              <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num" />
+              <!-- <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num" /> -->
             </div>
           </div>
         </el-col>
@@ -86,7 +86,7 @@
               <div class="card-panel-text">
                 创新
               </div>
-              <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" />
+              <!-- <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" /> -->
             </div>
           </div>
         </el-col>
@@ -119,6 +119,29 @@
         </el-card>
       </el-col>
     </el-row>
+    <el-row style="margin-top:3vh" v-if="['shijian','yiti','keyan'].includes(dataType)">
+      <el-card title="时间线" style="max-height: 40vh">
+      <div slot="header" class="clearfix">
+          <h3>时间线</h3>
+        </div>
+      <ElTimeline>
+        <ElTimelineItem v-for="item in [{name:'test',description:'aaa',key:3,value:5,date:'2022-05-01'}]" :timestamp="item.date" placement="top" :key="item.key" center>
+          <ElCard>
+            <div class="timelineItem">
+              <div class="timelineItem__text">
+                <h4>{{ item.name }}</h4>
+                <div>{{ item.description }}</div>
+              </div>
+              <div class="timelineItem__img">
+                <img :src="item.achievementImage" alt="成果展示图片" />
+              </div>
+            </div>
+          </ElCard>
+        </ElTimelineItem>
+      </ElTimeline>
+
+      </el-card>
+    </el-row>
   </div>
     </el-scrollbar>
   </div>
@@ -129,6 +152,7 @@
     name: 'stuMain',
     data(){
       return{
+        dataType: '',
         data1:[100,900,800,700,600,400,800],
         scdata2: ['2021~2022学年', '2020~2021学年', '2019~2020学年','2018~2019学年'],
          scdata: ['2021~2022学年', '2020~2021学年', '2019~2020学年','2018~2019学年'],
@@ -513,6 +537,7 @@
       },
       handleSetLineChartData(type) {
         this.reareapie();
+        this.dataType=type
         if(type==='sixiang') {
           this.$echarts.init(document.getElementById('bar')).dispose();
           this.barcharts(this.sxdata,this.scdata,this.sxdata1);

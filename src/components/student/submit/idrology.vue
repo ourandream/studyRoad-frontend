@@ -4,7 +4,7 @@
     <el-breadcrumb separator="》" style="padding-left:10px;padding-bottom:1%;font-size:15px;padding-top: 0.5%;">
       <el-breadcrumb-item :to="{ path: '/StuHome' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>思想品德</el-breadcrumb-item>
-      <el-breadcrumb-item>行为纪实加分上报</el-breadcrumb-item>
+      <el-breadcrumb-item>行为纪实成果上报</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
     <el-container>
@@ -296,11 +296,11 @@
         const { data }=await setextrapoint(stunum,behavior)
         console.log(data)
         if(data.code===200)this.$message({
-          message: "加分上报成功！",
+          message: "成果上报成功！",
           type: 'success'
         });
         else this.$message({
-          message: "加分上报失败！",
+          message: "成果上报失败！",
           type: 'error'
         });
       },

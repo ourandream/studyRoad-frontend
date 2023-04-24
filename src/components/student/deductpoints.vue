@@ -3,7 +3,7 @@
     <div>
           <el-breadcrumb separator="》" style="padding-left:10px;font-size:15px;">
             <el-breadcrumb-item :to="{ path: '/StuHome' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>扣分明细</el-breadcrumb-item>
+            <el-breadcrumb-item>违纪扣分</el-breadcrumb-item>
           </el-breadcrumb>
     </div>
     <el-container>
@@ -35,7 +35,6 @@
             prop="time"
             sortable
             label="扣分时间"
-            sortable
             width="150">
           </el-table-column>
 
@@ -45,8 +44,8 @@
             label="扣分模块">
             <template slot-scope="scope">
               <el-tag v-if="scope.row.module==='思想品德'" size="mini">思想品德</el-tag>
-              <el-tag  v-if="scope.row.module==='艺体素养'"type="warning" size="mini">艺体素养</el-tag>
-              <el-tag  v-if="scope.row.module==='实践创业'"type="info" size="mini">实践创业</el-tag>
+              <el-tag  v-if="scope.row.module==='艺体素养'" type="warning" size="mini">艺体素养</el-tag>
+              <el-tag  v-if="scope.row.module==='实践创业'" type="info" size="mini">实践创业</el-tag>
             </template>
           </el-table-column>
 

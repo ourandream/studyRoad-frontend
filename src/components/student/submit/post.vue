@@ -272,11 +272,11 @@
         const { data }=await setextrapoint(stunum,postobject)
         console.log(data)
         if(data.code===200)this.$message({
-          message: "加分上报成功！",
+          message: "成果上报成功！",
           type: 'success'
         });
         else this.$message({
-          message: "加分上报失败！",
+          message: "成果上报失败！",
           type: 'error'
         });
       },

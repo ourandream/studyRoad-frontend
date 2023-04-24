@@ -185,7 +185,7 @@
               <span slot="title">扣分录入</span>
             </el-menu-item>
             <el-menu-item index="/deductlist">
-              <span slot="title">扣分明细</span>
+              <span slot="title">违纪扣分</span>
             </el-menu-item>
           </el-submenu>
           <el-menu-item index="/evaluation">

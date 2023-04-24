@@ -2,7 +2,7 @@
   <div style="height: 100%; width: 100%">
     <div class="bg-blur"></div>
     <div class="head_box">
-      <h1>综合测评管理系统</h1>
+      <h1>学生成长路径可视化系统</h1>
     </div>
     <div class="login_box">
       <!--头像-->

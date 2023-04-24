@@ -100,7 +100,7 @@
               <span slot="title">民主测评</span>
             </el-menu-item>
             <el-menu-item index="/idrology">
-              <span slot="title">加分上报</span>
+              <span slot="title">成果上报</span>
             </el-menu-item>
             <el-menu-item index="/exidrology">
               <span slot="title">审核明细</span>
@@ -123,7 +123,7 @@
               <span slot="title">科研竞赛</span>
             </template>
             <el-menu-item index="/scientific">
-              <span slot="title">加分上报</span>
+              <span slot="title">成果上报</span>
             </el-menu-item>
             <el-menu-item index="/science">
               <span slot="title">审核明细</span>
@@ -136,7 +136,7 @@
               <span slot="title">艺体素养</span>
             </template>
             <el-menu-item index="/artjoin">
-              <span slot="title">加分上报</span>
+              <span slot="title">成果上报</span>
             </el-menu-item>
             <el-menu-item index="/artsport">
               <span slot="title">审核明细</span>
@@ -151,7 +151,7 @@
               <span slot="title">职务上报</span>
             </el-menu-item>
             <el-menu-item index="/practicehonor">
-              <span slot="title">加分上报</span>
+              <span slot="title">成果上报</span>
             </el-menu-item>
             <el-menu-item index="/practice">
               <span slot="title">审核明细</span>
@@ -159,7 +159,7 @@
           </el-submenu>
           <el-menu-item index="/deductpointse">
             <i class="el-icon-s-release"></i>
-            <span slot="title">扣分明细</span>
+            <span slot="title">违纪扣分</span>
           </el-menu-item>
           <el-menu-item index="/comquality">
             <i class="el-icon-s-data"></i>
@@ -326,7 +326,6 @@ export default {
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  max-height: 693px;
 }
 
 .left_box {

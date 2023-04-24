@@ -6,8 +6,8 @@
           <el-breadcrumb separator="》" style="padding-left:10px;font-size:15px;">
             <el-breadcrumb-item :to="{ path: '/StuHome' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>科研竞赛</el-breadcrumb-item>
-            <el-breadcrumb-item>加分上报</el-breadcrumb-item>
-            <el-breadcrumb-item>论文专利加分上报</el-breadcrumb-item>
+            <el-breadcrumb-item>成果上报</el-breadcrumb-item>
+            <el-breadcrumb-item>论文专利成果上报</el-breadcrumb-item>
           </el-breadcrumb>
         </el-container>
         <el-container>
@@ -268,11 +268,11 @@
         const { data }=await setextrapoint(stunum,keyanobject)
         console.log(data)
         if(data.code===200)this.$message({
-          message: "加分上报成功！",
+          message: "成果上报成功！",
           type: 'success'
         });
         else this.$message({
-          message: "加分上报失败！",
+          message: "成果上报失败！",
           type: 'error'
         });
       },
