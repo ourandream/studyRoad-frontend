@@ -1,95 +1,80 @@
 <template>
   <el-container class="home-container">
-    <!-- <el-header>
-      <div class="left_box">
-        <img src="../../assets/index.png" />
-        <span style="width: 200px"
-          ><h3 style="margin-left: 10px; margin-bottom: 25px">
-            学路学生成长可视化系统
-          </h3></span
-        >
-      </div>
-      <span class="wel">欢迎您！{{ name }}</span>
-      <div class="right_box">
-              </div>
-    </el-header>
- -->
     <el-container>
       <el-aside
         :width="isOpen == true ? '64px' : '200px'"
         style="position: relative"
       >
-        <!-- <div class="toggle-btn" @click="toggleMenu">|||</div> -->
-        <router-link to="/Stuhome" style="text-decoration: none">
-          <div
-            style="
-              color: rgb(164, 166, 179);
-              display: flex;
-              margin: 4vh 0px;
-              align-items: center;
-              padding-left: 12%;
-              font-size: large;
-            "
+        <div
+          style="
+            color: rgb(164, 166, 179);
+            display: flex;
+            margin: 4vh 0px;
+            align-items: center;
+            padding-left: 12%;
+            font-size: large;
+            cursor: pointer;
+          "
+          @click="Return"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="none"
+            version="1.1"
+            style="margin-right: 13%"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              fill="none"
-              version="1.1"
-              style="margin-right: 13%"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-            >
-              <defs>
-                <linearGradient
-                  x1="-5.551115123125783e-17"
-                  y1="-1.1102230246251565e-16"
-                  x2="1"
-                  y2="1"
-                  id="master_svg0__14"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FFFFFF"
-                    stop-opacity="0.699999988079071"
-                  />
-                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
-                </linearGradient>
-              </defs>
+            <defs>
+              <linearGradient
+                x1="-5.551115123125783e-17"
+                y1="-1.1102230246251565e-16"
+                x2="1"
+                y2="1"
+                id="master_svg0__14"
+              >
+                <stop
+                  offset="0%"
+                  stop-color="#FFFFFF"
+                  stop-opacity="0.699999988079071"
+                />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+            <g style="mix-blend-mode: passthrough">
               <g style="mix-blend-mode: passthrough">
-                <g style="mix-blend-mode: passthrough">
-                  <ellipse
-                    cx="16"
-                    cy="16"
-                    rx="16"
-                    ry="16"
-                    fill="#3751FF"
-                    fill-opacity="1"
-                  />
-                </g>
-                <g style="mix-blend-mode: passthrough">
-                  <path
-                    d="M11,10C11,9.447716,11.447715,9,12,9C12,9,15.99048,9,15.99048,9C18.212699999999998,9,19.933329999999998,9.609551,21.1524,10.82865C22.3841,12.04775,23,13.764980000000001,23,15.98034C23,18.2088,22.3841,19.9391,21.1524,21.171300000000002C19.933329999999998,22.3904,18.212699999999998,23,15.99048,23C15.99048,23,12,23,12,23C11.447715,23,11,22.552300000000002,11,22C11,22,11,10,11,10C11,10,11,10,11,10Z"
-                    fill="url(#master_svg0__14)"
-                    fill-opacity="1"
-                  />
-                </g>
+                <ellipse
+                  cx="16"
+                  cy="16"
+                  rx="16"
+                  ry="16"
+                  fill="#3751FF"
+                  fill-opacity="1"
+                />
               </g>
-            </svg>
-            学路系统
-          </div>
-        </router-link>
+              <g style="mix-blend-mode: passthrough">
+                <path
+                  d="M11,10C11,9.447716,11.447715,9,12,9C12,9,15.99048,9,15.99048,9C18.212699999999998,9,19.933329999999998,9.609551,21.1524,10.82865C22.3841,12.04775,23,13.764980000000001,23,15.98034C23,18.2088,22.3841,19.9391,21.1524,21.171300000000002C19.933329999999998,22.3904,18.212699999999998,23,15.99048,23C15.99048,23,12,23,12,23C11.447715,23,11,22.552300000000002,11,22C11,22,11,10,11,10C11,10,11,10,11,10Z"
+                  fill="url(#master_svg0__14)"
+                  fill-opacity="1"
+                />
+              </g>
+            </g>
+          </svg>
+          学路系统
+        </div>
 
         <el-menu
           class="el-menu-vertical-demo"
           :collapse="isOpen"
           :router="true"
-          :default-active="activePath"
           background-color="#272c33"
           :collapse-transition="false"
           text-color="rgba(255,255,255,0.7)"
           unique-opened
+          ref="menu"
         >
           <el-submenu index="1">
             <template slot="title">
@@ -278,6 +263,7 @@ export default {
   methods: {
     Return() {
       this.$router.push("/StuHome");
+      this.$refs.menu.activeIndex=null
     },
     SignOut() {
       this.$router.replace("/login");
