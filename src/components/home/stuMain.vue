@@ -5,7 +5,10 @@
         <el-row :gutter="40" class="panel-group">
           <el-col :xs="25" :sm="25" :lg="4" class="card-panel-col">
             <div class="card-panel" @click="handleSetLineChartData('sixiang')">
-              <div class="card-panel-icon-wrapper icon-sixiang">
+              <div
+                class="card-panel-icon-wrapper icon-sixiang"
+                :class="{ active: dataType === 'sixiang' }"
+              >
                 <i class="zc-iconxingming card-panel-icon"></i>
               </div>
               <div class="card-panel-description">
@@ -18,7 +21,10 @@
 
           <el-col :xs="25" :sm="25" :lg="4" class="card-panel-col">
             <div class="card-panel" @click="handleSetLineChartData('xueye')">
-              <div class="card-panel-icon-wrapper icon-xueye">
+              <div
+                class="card-panel-icon-wrapper icon-xueye"
+                :class="{ active: dataType === 'xueye' }"
+              >
                 <i class="zc-iconxingming card-panel-icon"></i>
               </div>
               <div class="card-panel-description">
@@ -31,7 +37,10 @@
 
           <el-col :xs="25" :sm="25" :lg="4" class="card-panel-col">
             <div class="card-panel" @click="handleSetLineChartData('keyan')">
-              <div class="card-panel-icon-wrapper icon-keyan">
+              <div
+                class="card-panel-icon-wrapper icon-keyan"
+                :class="{ active: dataType === 'keyan' }"
+              >
                 <i class="zc-iconxingming card-panel-icon"></i>
               </div>
               <div class="card-panel-description">
@@ -44,7 +53,10 @@
 
           <el-col :xs="25" :sm="25" :lg="4" class="card-panel-col">
             <div class="card-panel" @click="handleSetLineChartData('yiti')">
-              <div class="card-panel-icon-wrapper icon-yiti">
+              <div
+                class="card-panel-icon-wrapper icon-yiti"
+                :class="{ active: dataType === 'yiti' }"
+              >
                 <i class="zc-iconxingming card-panel-icon"></i>
               </div>
               <div class="card-panel-description">
@@ -57,7 +69,10 @@
 
           <el-col :xs="25" :sm="25" :lg="4" class="card-panel-col">
             <div class="card-panel" @click="handleSetLineChartData('shijian')">
-              <div class="card-panel-icon-wrapper icon-shijian">
+              <div
+                class="card-panel-icon-wrapper icon-shijian"
+                :class="{ active: dataType === 'shijian' }"
+              >
                 <i class="zc-iconxingming card-panel-icon"></i>
               </div>
               <div class="card-panel-description">
@@ -104,7 +119,7 @@
           style="margin-top: 3vh; text-align: start"
           v-if="['shijian', 'yiti', 'keyan'].includes(dataType)"
         >
-          <timeline-card :timelineData="timelineData" title="时间线"/>
+          <timeline-card :timelineData="timelineData" title="时间线" />
         </el-row>
       </div>
     </el-scrollbar>
@@ -121,7 +136,7 @@ export default {
   name: "stuMain",
   data() {
     return {
-      dataType: "",
+      dataType: "sixiang",
       timelineData: [
         { resultImage: "", time: "", title: "", description: "", key: 0 },
       ],
@@ -552,7 +567,6 @@ export default {
       this.piearea(this.moduledata, this.scdata2);
     },
     async updateTimelineData(type) {
-
       var stunum = this.$session.get("user").stunum;
       const newtimelinedata = [];
       let events = [];
@@ -613,6 +627,28 @@ export default {
     background: #fff;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
     border-color: rgba(0, 0, 0, 0.05);
+
+    & {
+      .icon-sixiang.active {
+        background: #40c9c6;
+      }
+
+      .icon-keyan.active {
+        background: #36a3f7;
+      }
+
+      .icon-yiti.active {
+        background: #f4516c;
+      }
+
+      .icon-shijian.active {
+        background: #34bfa3;
+      }
+
+      .icon-xueye.active {
+        background: #efc78c;
+      }
+    }
 
     &:hover {
       .card-panel-icon-wrapper {
