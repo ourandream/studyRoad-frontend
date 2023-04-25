@@ -1,5 +1,18 @@
 <template>
   <div style="text-align: start">
+    <el-breadcrumb
+      separator="》"
+      style="
+        padding-left: 10px;
+        padding-bottom: 1%;
+        font-size: 15px;
+        padding-top: 0.5%;
+      "
+    >
+      <el-breadcrumb-item :to="{ path: '/TeaHome' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item>学路看板</el-breadcrumb-item>
+    </el-breadcrumb>
+
     <timeline-card :timelineData="timelineData" title="学生活动与成就时间线" />
     <el-dialog :visible.sync="stuNameInputVisible">
       <label>
