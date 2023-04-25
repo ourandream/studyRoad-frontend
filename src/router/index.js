@@ -45,6 +45,7 @@ import YiShenhe from "../components/teacher/shenhemanage/yishenhe";
 import Evaluation from "../components/teacher/comprehensive/evaluation";
 import ZhDetail from "../components/teacher/comprehensive/zhdetail";
 import Erro from "../views/errPage/404";
+import StuTimeline from "../components/teacher/StuTimeline.vue";
 
 Vue.use(VueRouter);
 
@@ -148,6 +149,10 @@ const routes = [
         path: "/zhdetail",
         name: "ZhDetail",
         component: ZhDetail,
+      },
+      {
+        path: "/stuTimeline",
+        component: StuTimeline,
       },
     ],
   },

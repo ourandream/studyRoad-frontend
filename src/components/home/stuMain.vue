@@ -104,7 +104,7 @@
           style="margin-top: 3vh; text-align: start"
           v-if="['shijian', 'yiti', 'keyan'].includes(dataType)"
         >
-          <timeline-card :timelineData="timelineData" />
+          <timeline-card :timelineData="timelineData" title="时间线"/>
         </el-row>
       </div>
     </el-scrollbar>
@@ -552,7 +552,6 @@ export default {
       this.piearea(this.moduledata, this.scdata2);
     },
     async updateTimelineData(type) {
-      console.log(type);
 
       var stunum = this.$session.get("user").stunum;
       const newtimelinedata = [];

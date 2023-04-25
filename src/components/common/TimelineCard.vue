@@ -1,7 +1,7 @@
 <template>
   <ElCard>
     <div slot="header">
-      <h2>时间线</h2>
+      <h2>{{ title }}</h2>
     </div>
     <ElTimeline>
       <ElTimelineItem
@@ -30,7 +30,7 @@
 <script>
 export default {
   name: "timelineCard",
-  props: ["timelineData"],
+  props: ["timelineData", "title"],
   data() {
     return {};
   },

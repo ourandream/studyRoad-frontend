@@ -61,10 +61,7 @@
     </el-header> -->
 
     <el-container>
-      <el-aside
-        :width="isOpen == true ? '64px' : '180px'"
-        style="position: relative"
-      >
+      <el-aside style="position: relative; width: 13%">
         <!-- <div class="toggle-btn" @click="toggleMenu">|||</div> -->
         <router-link to="/TeaHome" style="text-decoration: none">
           <div
@@ -188,6 +185,10 @@
               <span slot="title">违纪扣分</span>
             </el-menu-item>
           </el-submenu>
+          <el-menu-item index="/stuTimeline">
+            <i class="el-icon-time"></i>
+            <span slot="title">学路看板</span>
+          </el-menu-item>
           <el-menu-item index="/evaluation">
             <i class="el-icon-s-data"></i>
             <span slot="title">综合测评</span>
@@ -341,7 +342,6 @@ export default {
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  max-height: 693px;
 }
 
 .left_box {
