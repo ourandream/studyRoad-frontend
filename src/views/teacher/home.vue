@@ -233,7 +233,7 @@ export default {
   },
   methods: {
     Return() {
-      this.$router.push("/TeaHome");
+      if (this.$route.path !== "/TeaHome") this.$router.push("/TeaHome");
       this.$refs.menu.activeIndex = null;
     },
     SignOut() {
@@ -255,7 +255,7 @@ export default {
     replaceHead() {
       this.teaimgurl = this.$session.get("user").head;
       this.image = this.$session.get("user").head;
-    }
+    },
   },
 };
 </script>

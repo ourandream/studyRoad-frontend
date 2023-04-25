@@ -262,8 +262,10 @@ export default {
   },
   methods: {
     Return() {
-      this.$router.push("/StuHome");
-      this.$refs.menu.activeIndex=null
+      if (this.$route.path !== "/StuHome") {
+        this.$router.push("/StuHome");
+      }
+      this.$refs.menu.activeIndex = null;
     },
     SignOut() {
       this.$router.replace("/login");
