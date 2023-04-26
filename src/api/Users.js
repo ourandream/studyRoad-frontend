@@ -60,6 +60,14 @@ export const changeTeainfo = (teacher) => {
   });
 };
 
+export const getStuInfo = (stunum) => {
+  return request({
+    url: "/ZongCe/student/findstubycon",
+    method: "get",
+    params: { id: stunum },
+  });
+};
+
 export const changeStupa = (painfo) => {
   return request({
     url: "/ZongCe/student/changeStupa",

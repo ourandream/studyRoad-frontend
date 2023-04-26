@@ -7,7 +7,6 @@
         mode="horizontal"
         select="handleSelect"
         router="true"
-        default-active="/stuInfo"
         background-color="#E9EEF3"
       >
         <el-menu-item index="/stuInfo">基本信息</el-menu-item>
