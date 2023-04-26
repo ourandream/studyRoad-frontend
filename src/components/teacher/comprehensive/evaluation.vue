@@ -10,7 +10,7 @@
       "
     >
       <el-breadcrumb-item :to="{ path: '/TeaHome' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>综合测评</el-breadcrumb-item>
+      <el-breadcrumb-item>素质报告</el-breadcrumb-item>
     </el-breadcrumb>
 
     <el-row :gutter="0">
@@ -83,7 +83,7 @@
     <el-card>
       <el-row :gutter="32">
         <el-col :xs="24" :sm="24" :lg="12">
-          <h4>综合测评排名</h4>
+          <h4>素质报告排名</h4>
           <el-table
             :data="tableData.zhpaiData"
             border
@@ -840,7 +840,7 @@ export default {
     };
   },
   mounted() {
-    this.areachart("zhchart", this.zhscore, "综合测评分数段统计");
+    this.areachart("zhchart", this.zhscore, "素质报告分数段统计");
     this.areachart("sxchart", this.sxscore, "思想品德模块分数段统计");
     this.areachart("xychart", this.xyscore, "学业表现模块分数段统计");
     this.areachart("kychart", this.kyscore, "科研竞赛模块分数段统计");

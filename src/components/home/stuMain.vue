@@ -77,7 +77,7 @@
               </div>
               <div class="card-panel-description">
                 <div class="card-panel-text">实践</div>
-                <div class="card-panel-text">创新</div>
+                <div class="card-panel-text">育人</div>
                 <!-- <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" /> -->
               </div>
             </div>
@@ -119,7 +119,7 @@
           style="margin-top: 3vh; text-align: start"
           v-if="['shijian', 'yiti', 'keyan'].includes(dataType)"
         >
-          <timeline-card :timelineData="timelineData" title="时间线" />
+          <timeline-card :timelineData="timelineData" title="成长轨迹" />
         </el-row>
       </div>
     </el-scrollbar>

@@ -131,7 +131,7 @@
           </el-menu-item>
           <el-menu-item index="/evaluation">
             <i class="el-icon-s-data"></i>
-            <span slot="title">综合测评</span>
+            <span slot="title">素质报告统计</span>
           </el-menu-item>
         </el-menu>
         <el-dropdown

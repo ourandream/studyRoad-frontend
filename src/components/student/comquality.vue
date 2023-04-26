@@ -15,7 +15,7 @@
             <el-breadcrumb-item :to="{ path: '/StuHome' }"
               >首页</el-breadcrumb-item
             >
-            <el-breadcrumb-item>综合测评</el-breadcrumb-item>
+            <el-breadcrumb-item>素质报告</el-breadcrumb-item>
             <el-breadcrumb-item>综合素质评价表</el-breadcrumb-item>
           </el-breadcrumb>
           <img
@@ -80,7 +80,7 @@
               <i class="el-icon-user"></i>
               姓名
             </template>
-            李昊
+            丘思瑜
           </el-descriptions-item>
           <el-descriptions-item>
             <template slot="label">
@@ -361,7 +361,7 @@
           <el-descriptions-item>
             <template slot="label">
               <i class="el-icon-tickets"></i>
-              实践创新模块
+              实践育人模块
             </template>
             <el-table
               :data="shijianData"

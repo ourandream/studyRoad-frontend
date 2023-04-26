@@ -10,7 +10,7 @@
             <el-breadcrumb-item :to="{ path: '/StuHome' }"
               >首页</el-breadcrumb-item
             >
-            <el-breadcrumb-item>实践创新</el-breadcrumb-item>
+            <el-breadcrumb-item>实践育人</el-breadcrumb-item>
             <el-breadcrumb-item>成果上报</el-breadcrumb-item>
             <el-breadcrumb-item>其他实践成果上报</el-breadcrumb-item>
           </el-breadcrumb>

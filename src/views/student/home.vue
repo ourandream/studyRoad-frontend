@@ -130,7 +130,7 @@
           <el-submenu index="5">
             <template slot="title">
               <i class="el-icon-s-ticket"></i>
-              <span slot="title">实践创业</span>
+              <span slot="title">实践育人</span>
             </template>
             <el-menu-item index="/post">
               <span slot="title">职务上报</span>
@@ -148,7 +148,7 @@
           </el-menu-item>
           <el-menu-item index="/comquality">
             <i class="el-icon-s-data"></i>
-            <span slot="title">综合测评</span>
+            <span slot="title">素质报告</span>
           </el-menu-item>
           <el-submenu v-if="this.$session.get('user').stupower === 1" index="7">
             <template slot="title">

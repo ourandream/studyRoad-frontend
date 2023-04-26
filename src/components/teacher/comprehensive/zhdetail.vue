@@ -14,7 +14,7 @@
           <el-breadcrumb-item :to="{ path: '/TeaHome' }"
             >首页</el-breadcrumb-item
           >
-          <el-breadcrumb-item>综合测评</el-breadcrumb-item>
+          <el-breadcrumb-item>素质报告</el-breadcrumb-item>
           <el-breadcrumb-item>个人综测详细</el-breadcrumb-item>
         </el-breadcrumb>
       </el-container>
@@ -333,7 +333,7 @@
           <el-descriptions-item>
             <template slot="label">
               <i class="el-icon-tickets"></i>
-              实践创新模块
+              实践育人模块
             </template>
             <el-table
               :data="zhshijianData"
